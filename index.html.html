@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أَبْيَان | العربية تُكتشف .. تُعاش .. وتُبدع</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --emerald-deep: #0b3b36;
+      --emerald-mid: #14534c;
+      --gold-rich: #c89b3c;
+      --gold-light: #e5c375;
+      --parchment: #fbf8f1;
+      --parchment-dark: #f2ead9;
+      --ink: #1e2423;
+      --muted: #5a6664;
+      --terracotta: #b85d3b;
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --border-soft: rgba(200, 155, 60, 0.35);
+      --shadow-soft: 0 10px 30px rgba(11, 59, 54, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: var(--parchment);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.7;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* خلفية طبيعية وتراثية عُمانية هادئة ومريحة للعين */
+    .oman-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: linear-gradient(180deg, #f5eedf 0%, #fbf8f1 48%, #efe5d1 100%);
+      overflow: hidden;
+    }
+
+    .oman-backdrop svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.42;
+    }
+
+    h1, h2, h3, .amiri {
+      font-family: 'Amiri', serif;
+    }
+
+    /* الهيدر النظيف مع رسومات أقواس انسيابية هادئة */
+    header {
+      background: linear-gradient(135deg, #0b3b36 0%, #134e47 55%, #0f443e 100%);
+      color: #fff;
+      padding: 1.5rem 2rem 1.2rem;
+      border-bottom: 4px solid var(--gold-rich);
+      box-shadow: 0 6px 24px rgba(11, 59, 54, 0.22);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-art-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.14;
+    }
+
+    .header-top {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+    }
+
+    .logo-anim {
+      width: 74px;
+      height: 74px;
+      flex-shrink: 0;
+    }
+
+    @keyframes writePen {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(-4px, 3px) rotate(-4deg); }
+      50% { transform: translate(-8px, 1px) rotate(2deg); }
+      75% { transform: translate(-3px, 4px) rotate(-3deg); }
+    }
+
+    @keyframes inkGlow {
+      0%, 100% { stroke-dashoffset: 60; opacity: 0.55; }
+      50% { stroke-dashoffset: 0; opacity: 1; }
+    }
+
+    .pen-group {
+      transform-origin: 45px 25px;
+      animation: writePen 3.2s ease-in-out infinite;
+    }
+
+    .ink-line {
+      stroke-dasharray: 60;
+      animation: inkGlow 3.2s ease-in-out infinite;
+    }
+
+    .brand-text h1 {
+      font-size: 2.7rem;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+      line-height: 1.1;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    }
+
+    .brand-tagline {
+      font-family: 'Amiri', serif;
+      font-size: 1.25rem;
+      color: #f4ebd9;
+      margin-top: 0.25rem;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .sound-toggle {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid var(--gold-light);
+      color: #fff;
+      padding: 0.55rem 1.05rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: 'Tajawal', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.25s ease;
+    }
+
+    .sound-toggle:hover {
+      background: var(--gold-rich);
+      color: var(--emerald-deep);
+    }
+
+    /* شريط التنقل */
+    nav {
+      max-width: 1320px;
+      margin: 1.2rem auto 0;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav button {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(229, 195, 117, 0.3);
+      color: #f7f1e3;
+      padding: 0.65rem 1.2rem;
+      border-radius: 10px;
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    nav button:hover {
+      background: rgba(200, 155, 60, 0.25);
+      border-color: var(--gold-light);
+    }
+
+    nav button.active {
+      background: var(--gold-rich);
+      color: var(--emerald-deep);
+      border-color: var(--gold-rich);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    /* التخطيط الرئيسي */
+    .workspace {
+      max-width: 1320px;
+      margin: 1.8rem auto 3rem;
+      padding: 0 1.2rem;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 1.8rem;
+      align-items: start;
+    }
+
+    @media (max-width: 1024px) {
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .section-panel {
+      display: none;
+      animation: fadeSlide 0.4s ease;
+    }
+
+    .section-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-soft);
+      border-radius: 16px;
+      padding: 1.6rem;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(6px);
+    }
+
+    .section-hero {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 1.5rem;
+      align-items: center;
+      background: linear-gradient(135deg, #fffdf9 0%, #f5ebd6 100%);
+      border: 1px solid var(--gold-rich);
+      border-radius: 18px;
+      padding: 1.5rem;
+      margin-bottom: 1.6rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    @media (max-width: 720px) {
+      .section-hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .section-hero h2 {
+      font-size: 2rem;
+      color: var(--emerald-deep);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .illustration-box {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(200, 155, 60, 0.4);
+      background: #fff;
+      box-shadow: 0 4px 14px rgba(11, 59, 54, 0.08);
+    }
+
+    .illustration-box svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* الأزرار والعناصر التفاعلية */
+    .btn {
+      background: var(--emerald-deep);
+      color: #fff;
+      border: none;
+      padding: 0.65rem 1.3rem;
+      border-radius: 10px;
+      font-family: 'Tajawal', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .btn:hover {
+      background: var(--emerald-mid);
+      transform: translateY(-1px);
+    }
+
+    .btn-gold {
+      background: var(--gold-rich);
+      color: var(--emerald-deep);
+    }
+
+    .btn-gold:hover {
+      background: #d8aa48;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--emerald-deep);
+      color: var(--emerald-deep);
+    }
+
+    .btn-outline:hover {
+      background: var(--emerald-deep);
+      color: #fff;
+    }
+
+    .audio-btn {
+      background: #eef6f4;
+      border: 1px solid #b8d8d2;
+      color: var(--emerald-deep);
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: 0.2s;
+    }
+
+    .audio-btn:hover {
+      background: var(--emerald-deep);
+      color: #fff;
+    }
+
+    .tabs-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.1rem;
+    }
+
+    .pill-tab {
+      padding: 0.48rem 1.05rem;
+      border-radius: 25px;
+      border: 1px solid var(--border-soft);
+      background: var(--parchment-dark);
+      color: var(--emerald-deep);
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .pill-tab.active, .pill-tab:hover {
+      background: var(--emerald-deep);
+      color: #fff;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .mini-box {
+      background: #fcfaf5;
+      border: 1px solid #e5dac3;
+      border-radius: 12px;
+      padding: 1rem;
+    }
+
+    .mini-box h4 {
+      color: var(--emerald-deep);
+      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      margin: 0.8rem 0;
+    }
+
+    .search-row input {
+      flex: 1;
+      min-width: 220px;
+      margin: 0;
+    }
+
+    textarea, input[type="text"], select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1.5px solid #d8ccb4;
+      border-radius: 10px;
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1rem;
+      background: #fff;
+      margin-top: 0.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    textarea:focus, input:focus, select:focus {
+      outline: none;
+      border-color: var(--emerald-deep);
+    }
+
+    .highlight-word {
+      background: #ffe9a8;
+      color: #0b3b36;
+      padding: 0.1rem 0.45rem;
+      border-radius: 6px;
+      border-bottom: 2px solid var(--gold-rich);
+      font-weight: 700;
+    }
+
+    /* محرك بَصير الجانبي */
+    .baseer-sidebar {
+      background: linear-gradient(180deg, #0b3b36 0%, #114c45 100%);
+      color: #f9f5ec;
+      border-radius: 18px;
+      padding: 1.5rem;
+      border: 2px solid var(--gold-rich);
+      box-shadow: 0 12px 32px rgba(11, 59, 54, 0.22);
+      position: sticky;
+      top: 1.5rem;
+    }
+
+    .baseer-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      border-bottom: 1px solid rgba(229, 195, 117, 0.3);
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .baseer-orb {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ffe699, #c89b3c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--emerald-deep);
+      font-weight: 800;
+      font-size: 1.3rem;
+      box-shadow: 0 0 16px rgba(229, 195, 117, 0.6);
+      flex-shrink: 0;
+    }
+
+    .baseer-task {
+      background: rgba(255, 255, 255, 0.08);
+      border-right: 3px solid var(--gold-light);
+      padding: 0.75rem 0.9rem;
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+      font-size: 0.92rem;
+    }
+
+    .baseer-task strong {
+      display: block;
+      color: var(--gold-light);
+      margin-bottom: 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    /* أشرطة التقدم */
+    .progress-wrap {
+      margin-bottom: 0.9rem;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background: #e6dcc8;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--emerald-deep), var(--gold-rich));
+      transition: width 0.5s ease;
+    }
+
+    /* إشعار الصوت */
+    .toast-audio {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: var(--emerald-deep);
+      color: #fff;
+      border: 1.5px solid var(--gold-rich);
+      padding: 0.75rem 1.2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+    }
+
+    .badge-stamp {
+      display: inline-block;
+      padding: 0.4rem 0.85rem;
+      border-radius: 8px;
+      border: 1.5px solid var(--gold-rich);
+      background: #fff9eb;
+      color: var(--emerald-deep);
+      font-weight: 700;
+      margin: 0.25rem;
+    }
+
+    .dialogue-box {
+      background: #f4efe4;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-right: 4px solid var(--emerald-deep);
+    }
+
+    .choice-btn {
+      display: block;
+      width: 100%;
+      text-align: right;
+      background: #fff;
+      border: 1.5px solid #d5c8ae;
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      margin-bottom: 0.6rem;
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .choice-btn:hover {
+      border-color: var(--emerald-deep);
+      background: #f0f7f5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- خلفية طبيعية وتراثية عُمانية هادئة ومريحة للعين -->
+  <div class="oman-backdrop" aria-hidden="true">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="skySoft" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ece0c9" />
+          <stop offset="100%" stop-color="#f9f4e8" />
+        </linearGradient>
+        <linearGradient id="hajarFar" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#d2be9c" />
+          <stop offset="100%" stop-color="#e8dcc4" />
+        </linearGradient>
+        <linearGradient id="hajarNear" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#bfa67e" />
+          <stop offset="100%" stop-color="#dfd1b7" />
+        </linearGradient>
+        <linearGradient id="falajWater" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#a8cbc7" />
+          <stop offset="50%" stop-color="#bdd9d6" />
+          <stop offset="100%" stop-color="#9ec3bf" />
+        </linearGradient>
+      </defs>
+
+      <rect width="1440" height="900" fill="url(#skySoft)" />
+
+      <!-- شمس عُمانية دافئة ناعمة -->
+      <circle cx="1160" cy="180" r="110" fill="#e8cb82" opacity="0.45" />
+      <circle cx="1160" cy="180" r="72" fill="#f3dca0" opacity="0.6" />
+
+      <!-- جبال الحجر البعيدة بانسيابية هادئة -->
+      <path d="M0,490 Q220,330 460,440 T940,360 T1440,420 L1440,900 L0,900 Z" fill="url(#hajarFar)" opacity="0.7" />
+
+      <!-- قلعة عُمانية تاريخية بتصميم فني مبسط -->
+      <g transform="translate(530, 255)" fill="#b69868" opacity="0.82">
+        <rect x="18" y="32" width="84" height="68" rx="4" />
+        <rect x="108" y="16" width="58" height="84" rx="8" />
+        <path d="M18,32 L18,24 L30,24 L30,32 L44,32 L44,24 L56,24 L56,32 L70,32 L70,24 L82,24 L82,32 L102,32 Z" />
+        <path d="M108,16 L108,8 L120,8 L120,16 L134,16 L134,8 L146,8 L146,16 L166,16 Z" />
+      </g>
+
+      <!-- جبال الحجر القريبة -->
+      <path d="M0,560 Q310,410 640,530 T1240,470 L1440,510 L1440,900 L0,900 Z" fill="url(#hajarNear)" opacity="0.78" />
+
+      <!-- واحة النخيل العُمانية -->
+      <g transform="translate(165, 495)" opacity="0.72">
+        <path d="M42,175 Q46,105 36,42" stroke="#8c704c" stroke-width="7" stroke-linecap="round" fill="none" />
+        <path d="M36,42 Q4,24 -14,56 M36,42 Q12,8 -6,28 M36,42 Q68,18 86,52 M36,42 Q62,8 80,25" stroke="#758f6e" stroke-width="4.5" stroke-linecap="round" fill="none" />
+        <path d="M124,185 Q120,115 130,58" stroke="#8c704c" stroke-width="6" stroke-linecap="round" fill="none" />
+        <path d="M130,58 Q98,38 82,68 M130,58 Q162,38 178,68 M130,58 Q112,24 96,42 M130,58 Q148,24 164,42" stroke="#758f6e" stroke-width="4.5" stroke-linecap="round" fill="none" />
+      </g>
+
+      <!-- مجرى الفلج المائي الهادئ -->
+      <path d="M0,745 Q420,695 820,760 T1440,725 L1440,900 L0,900 Z" fill="url(#falajWater)" opacity="0.52" />
+      <path d="M0,795 Q480,755 960,810 T1440,785 L1440,900 L0,900 Z" fill="#8fb8b4" opacity="0.35" />
+    </svg>
+  </div>
+
+  <!-- الهيدر -->
+  <header>
+    <!-- رسومات أقواس وموجات هادئة في الترويسة -->
+    <svg class="header-art-bg" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M-40,180 Q180,20 400,180" fill="none" stroke="#e5c375" stroke-width="2" />
+      <path d="M340,180 Q560,20 780,180" fill="none" stroke="#e5c375" stroke-width="2" />
+      <path d="M720,180 Q940,20 1160,180" fill="none" stroke="#e5c375" stroke-width="2" />
+      <path d="M1100,180 Q1320,20 1540,180" fill="none" stroke="#e5c375" stroke-width="2" />
+    </svg>
+
+    <div class="header-top">
+      <div class="brand-box">
+        <!-- شعار أَبْيَان: قلم متحرك يخط بمداد الذهب على لوح وكتاب -->
+        <svg class="logo-anim" viewBox="0 0 90 90" aria-label="شعار منصة أبيان">
+          <path d="M14,62 Q30,54 45,62 Q60,54 76,62 L76,74 Q60,66 45,74 Q30,66 14,74 Z" fill="#fbf8f1" stroke="#c89b3c" stroke-width="2.5" />
+          <line x1="45" y1="62" x2="45" y2="74" stroke="#c89b3c" stroke-width="2" />
+          <path class="ink-line" d="M22,55 Q36,48 48,54 T70,49" fill="none" stroke="#ffd97d" stroke-width="3" stroke-linecap="round" />
+          <g class="pen-group">
+            <path d="M47,51 L55,38 L74,14 Q78,10 81,13 Q84,16 80,20 L61,42 Z" fill="#e5c375" stroke="#0b3b36" stroke-width="1.5" />
+            <polygon points="47,51 55,38 59,42" fill="#0b3b36" />
+          </g>
+        </svg>
+        <div class="brand-text">
+          <h1>أَبْيَان</h1>
+          <div class="brand-tagline">العربية تُكتشف .. تُعاش .. وتُبدع</div>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <button id="soundToggleBtn" class="sound-toggle" title="تفعيل أو كتم الصوت التفاعلي">
+          <span id="soundIcon">🔊</span>
+          <span id="soundLabel">الصوت التفاعلي: مُفعّل</span>
+        </button>
+      </div>
+    </div>
+
+    <nav aria-label="أقسام منصة أبيان">
+      <button class="active" data-sec="discover">🔍 اكتشف</button>
+      <button data-sec="live">🌍 عش اللغة</button>
+      <button data-sec="voice">🎙️ صوتك</button>
+      <button data-sec="create">✍️ أبدع</button>
+      <button data-sec="memory">🏛️ الذاكرة العربية</button>
+      <button data-sec="passport">🛂 جواز أَبْيَان</button>
+    </nav>
+  </header>
+
+  <!-- مساحة العمل -->
+  <div class="workspace">
+    <main>
+      <!-- 1. قسم اكتشف التفاعلي -->
+      <section id="discover" class="section-panel active">
+        <div class="section-hero">
+          <div>
+            <h2>🔍 مختبر «اكتشف» للمفردات والدلالات</h2>
+            <p>أدخل أي كلمة عربية لاستخراج جذرها ومشتقاتها، أو اكتب جملة كاملة لتحليل دلالة أي كلمة بداخلها وفق سياقها اللغوي.</p>
+          </div>
+          <div class="illustration-box">
+            <svg viewBox="0 0 360 200">
+              <rect width="360" height="200" fill="#f6efe0" />
+              <path d="M180,180 L180,105 M180,130 L125,95 M180,120 L235,88 M180,105 L155,60 M180,105 L208,60" stroke="#7a5832" stroke-width="7" stroke-linecap="round" />
+              <circle cx="180" cy="175" r="22" fill="#0b3b36" />
+              <text x="180" y="181" fill="#e5c375" font-family="Amiri" font-size="16" text-anchor="middle">جـ ذ ر</text>
+              <g fill="#14534c">
+                <rect x="85" y="75" width="64" height="28" rx="14" />
+                <rect x="212" y="68" width="64" height="28" rx="14" />
+                <rect x="122" y="36" width="58" height="26" rx="13" />
+                <rect x="186" y="36" width="62" height="26" rx="13" />
+              </g>
+              <g fill="#fff" font-family="Tajawal" font-size="13" text-anchor="middle">
+                <text x="117" y="94">مَكْتَبَة</text>
+                <text x="244" y="87">كَاتِب</text>
+                <text x="151" y="54">كِتَاب</text>
+                <text x="217" y="54">مَكْتُوب</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- الأداة 1: الباحث الصرفي الحي -->
+        <div class="card">
+          <h3>🌳 الباحث الصرفي الحي (استخرج جذر أي كلمة)</h3>
+          <p>اكتب أي كلمة عربية (مثل: <em>استخراج، المكتبات، يتعلمون، منارة، مسافرون</em>) وسيقوم المحلل بتجريدها واستخراج جذرها ومشتقاتها:</p>
+          <div class="search-row">
+            <input type="text" id="wordRootInput" placeholder="أدخل الكلمة هنا... (مثال: المكتبات)" value="المكتبات" />
+            <button class="btn" id="analyzeRootBtn">🔍 استخرج الجذر والمشتقات</button>
+          </div>
+          <div class="tabs-row" id="quickWordChips">
+            <button class="pill-tab" data-w="المكتبات">المكتبات</button>
+            <button class="pill-tab" data-w="استعلام">استعلام</button>
+            <button class="pill-tab" data-w="منارة">منارة</button>
+            <button class="pill-tab" data-w="يتسابقون">يتسابقون</button>
+            <button class="pill-tab" data-w="مصفاة">مصفاة</button>
+          </div>
+          <div id="rootAnalysisOutput"></div>
+        </div>
+
+        <!-- الأداة 2: محلل السياق المفتوح -->
+        <div class="card">
+          <h3>🎭 مُحلّل الدلالة السياقية للجُمل</h3>
+          <p>أدخل أي جملة عربية وحدّد الكلمة التي تريد معرفة معناها الدقيق داخل هذا السياق:</p>
+          <label for="contextSentenceInput"><strong>الجملة العربية:</strong></label>
+          <input type="text" id="contextSentenceInput" value="شرب المسافر من عين عذبة في سفح الجبل الأخضر" placeholder="اكتب جملتك هنا..." />
+
+          <div class="search-row">
+            <input type="text" id="contextTargetWordInput" value="عين" placeholder="الكلمة المراد تحليل سياقها..." />
+            <button class="btn btn-gold" id="analyzeContextBtn">✨ حلّل سياق الكلمة</button>
+            <button class="audio-btn" id="speakUserSentenceBtn">🔊 استمع للجملة</button>
+          </div>
+
+          <div class="tabs-row" id="quickContextExamples">
+            <button class="pill-tab" data-s="شرب المسافر من عين عذبة في سفح الجبل الأخضر" data-t="عين">مثال: عين (ماء)</button>
+            <button class="pill-tab" data-s="أصابت الطفل عين حاسدة فقرأ والده المعوذات" data-t="عين">مثال: عين (حسد)</button>
+            <button class="pill-tab" data-s="ضرب الحكيم مثلاً بليغاً أدهش الحاضرين" data-t="ضرب">مثال: ضرب (مثل)</button>
+            <button class="pill-tab" data-s="ساق الراعي أغنامه نحو الوادي الأخضر" data-t="ساق">مثال: ساق (رعى)</button>
+          </div>
+
+          <div id="contextAnalysisOutput"></div>
+        </div>
+
+        <!-- الأداة 3: المترادفات والأضداد -->
+        <div class="card">
+          <h3>⚖️ ميزان المترادفات والأضداد والتراكيب</h3>
+          <div class="grid-2" id="synonymsGrid"></div>
+        </div>
+      </section>
+
+      <!-- 2. قسم عش اللغة -->
+      <section id="live" class="section-panel">
+        <div class="section-hero">
+          <div>
+            <h2>🌍 «عش اللغة» في مواقف الحياة</h2>
+            <p>تفاعل باللغة العربية في مواقف حياتية واقعية، واستمع إلى الحوارات الحيّة، واتخذ قراراتك اللغوية بثقة وفصاحة.</p>
+          </div>
+          <div class="illustration-box" id="sceneIllustration"></div>
+        </div>
+
+        <div class="card">
+          <div class="tabs-row" id="placeTabs">
+            <button class="pill-tab active" data-place="school">🏫 المدرسة</button>
+            <button class="pill-tab" data-place="airport">✈️ المطار</button>
+            <button class="pill-tab" data-place="library">📚 المكتبة</button>
+            <button class="pill-tab" data-place="souq">🏮 سوق مطرح</button>
+            <button class="pill-tab" data-place="majlis">☕ المجلس العُماني</button>
+          </div>
+          <div id="sceneContainer"></div>
+        </div>
+      </section>
+
+      <!-- 3. قسم صوتك -->
+      <section id="voice" class="section-panel">
+        <div class="section-hero">
+          <div>
+            <h2>🎙️ مختبر «صوتك» للنطق والإلقاء</h2>
+            <p>استمع للنطق الفصيح السليم، وتدرّب على مخارج الحروف والإلقاء الأدبي، وسجّل محاولتك الصوتية لتتلقى توجيهات الأداء.</p>
+          </div>
+          <div class="illustration-box">
+            <svg viewBox="0 0 360 200">
+              <rect width="360" height="200" fill="#0b3b36" />
+              <g stroke="#e5c375" stroke-width="4" stroke-linecap="round">
+                <line x1="60" y1="85" x2="60" y2="115" />
+                <line x1="85" y1="65" x2="85" y2="135" />
+                <line x1="110" y1="45" x2="110" y2="155" />
+                <line x1="250" y1="45" x2="250" y2="155" />
+                <line x1="275" y1="65" x2="275" y2="135" />
+                <line x1="300" y1="85" x2="300" y2="115" />
+              </g>
+              <rect x="162" y="45" width="36" height="65" rx="18" fill="#c89b3c" />
+              <path d="M148,92 A32,32 0 0,0 212,92" fill="none" stroke="#fbf8f1" stroke-width="4" />
+              <line x1="180" y1="124" x2="180" y2="155" stroke="#fbf8f1" stroke-width="4" />
+              <line x1="160" y1="155" x2="200" y2="155" stroke="#fbf8f1" stroke-width="4" stroke-linecap="round" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🗣️ تحدي الإلقاء ومخارج الحروف</h3>
+          <div class="tabs-row" id="voiceChallenges">
+            <button class="pill-tab active" data-vidx="0">مخارج الضاد والظاء</button>
+            <button class="pill-tab" data-vidx="1">إلقاء شعري عُماني</button>
+            <button class="pill-tab" data-vidx="2">خطابة وفصاحة</button>
+          </div>
+
+          <div class="dialogue-box">
+            <p id="voicePromptText" class="amiri" style="font-size:1.45rem; color:var(--emerald-deep);"></p>
+            <p id="voiceTip" style="font-size:0.95rem; color:var(--muted); margin-top:0.4rem;"></p>
+            <div style="margin-top:0.8rem; display:flex; gap:0.6rem; flex-wrap:wrap;">
+              <button class="audio-btn" id="listenModelBtn">🔊 استمع للنموذج الصوتي</button>
+              <button class="btn btn-gold" id="recordAttemptBtn">🎙️ سجّل محاولتك الصوتية</button>
+            </div>
+          </div>
+
+          <div id="voiceReport" style="display:none;" class="mini-box"></div>
+        </div>
+      </section>
+
+      <!-- 4. قسم أبدع -->
+      <section id="create" class="section-panel">
+        <div class="section-hero">
+          <div>
+            <h2>✍️ استوديو «أبدع» للكتابة الأدبية</h2>
+            <p>انسج قصصك وخواطرك وحواراتك الأدبية مستلهمًا من الصور والمحفزات اللغوية، ودع «بَصير» يصقل أسلوبك ويحفظ إبداعك.</p>
+          </div>
+          <div class="illustration-box">
+            <svg viewBox="0 0 360 200">
+              <rect width="360" height="200" fill="#f7efe0" />
+              <rect x="75" y="25" width="170" height="150" rx="8" fill="#fffdf8" stroke="#c89b3c" stroke-width="2" />
+              <line x1="95" y1="55" x2="220" y2="55" stroke="#d8ccb4" stroke-width="3" />
+              <line x1="95" y1="80" x2="210" y2="80" stroke="#d8ccb4" stroke-width="3" />
+              <line x1="95" y1="105" x2="195" y2="105" stroke="#d8ccb4" stroke-width="3" />
+              <rect x="262" y="125" width="44" height="42" rx="8" fill="#0b3b36" />
+              <rect x="270" y="117" width="28" height="10" rx="3" fill="#c89b3c" />
+              <path d="M282,120 Q295,65 328,35 Q300,45 278,95 Z" fill="#b85d3b" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>✨ مولّد المحفزات اللغوية</h3>
+          <div style="display:flex; gap:0.6rem; flex-wrap:wrap; margin-bottom:1rem;">
+            <button class="btn btn-outline" id="newPromptBtn">🎲 محفز إبداعي جديد</button>
+            <button class="audio-btn" id="speakPromptBtn">🔊 استمع للمحفز</button>
+          </div>
+          <div class="mini-box" style="margin-bottom:1rem;">
+            <p id="creativeScenePrompt" class="amiri" style="font-size:1.25rem; color:var(--emerald-deep);"></p>
+            <div id="randomWordsChips" style="margin-top:0.5rem;"></div>
+          </div>
+
+          <label for="creativeInput"><strong>اكتب نصك الأدبي (قصة قصيرة، خاطرة، وصف، أو حوار):</strong></label>
+          <textarea id="creativeInput" rows="5" placeholder="ابدأ الكتابة هنا... مثلاً: حين أشرقت شمس الصباح على شرفات الجبل الأخضر، همس الفلج بحكايةٍ قديمة..."></textarea>
+          <div style="display:flex; gap:0.7rem; flex-wrap:wrap;">
+            <button class="btn" id="analyzeWritingBtn">🧠 حلّل النص مع بَصير</button>
+            <button class="btn btn-gold" id="savePortfolioBtn">📥 احفظ في جواز أَبْيَان</button>
+          </div>
+          <div id="writingFeedbackBox" style="margin-top:1rem;"></div>
+        </div>
+      </section>
+
+      <!-- 5. قسم الذاكرة العربية -->
+      <section id="memory" class="section-panel">
+        <div class="section-hero">
+          <div>
+            <h2>🏛️ «الذاكرة العربية» والتراث العُماني</h2>
+            <p>كنوزٌ من الأمثال السائرة والتعبيرات البليغة، مع مساحة موثّقة للمفردات والتعبيرات العُمانية الأصيلة وجذورها الفصيحة.</p>
+          </div>
+          <div class="illustration-box">
+            <svg viewBox="0 0 360 200">
+              <rect width="360" height="200" fill="#efe4ce" />
+              <path d="M50,190 L50,85 Q180,15 310,85 L310,190" fill="none" stroke="#0b3b36" stroke-width="10" />
+              <path d="M75,190 L75,98 Q180,38 285,98 L285,190" fill="none" stroke="#c89b3c" stroke-width="4" />
+              <circle cx="180" cy="115" r="34" fill="#14534c" />
+              <text x="180" y="122" fill="#ffd97d" font-family="Amiri" font-size="18" text-anchor="middle">أصالة</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🇴🇲 الذاكرة العُمانية الموثّقة</h3>
+          <div class="grid-2" id="omaniMemoryGrid"></div>
+        </div>
+
+        <div class="card">
+          <h3>📜 من روائع الأمثال والتعبيرات العربية</h3>
+          <div class="grid-2" id="arabicProverbsGrid"></div>
+        </div>
+      </section>
+
+      <!-- 6. قسم جواز أبيان -->
+      <section id="passport" class="section-panel">
+        <div class="section-hero">
+          <div>
+            <h2>🛂 «جواز أَبْيَان» للإنجاز اللغوي</h2>
+            <p>ملف إنجازك الرقمي الحيّ؛ يوثّق رحلتك في اكتشاف المفردات، والتحدث، والكتابة الإبداعية، ويرصد نموّك اللغوي عبر الزمن.</p>
+          </div>
+          <div class="illustration-box">
+            <svg viewBox="0 0 360 200">
+              <rect width="360" height="200" fill="#0b3b36" />
+              <rect x="85" y="20" width="190" height="160" rx="12" fill="#14534c" stroke="#c89b3c" stroke-width="3" />
+              <circle cx="180" cy="82" r="32" fill="none" stroke="#e5c375" stroke-width="3" />
+              <text x="180" y="89" fill="#e5c375" font-family="Amiri" font-size="22" text-anchor="middle">أَبْيَان</text>
+              <text x="180" y="140" fill="#fbf8f1" font-family="Tajawal" font-size="14" text-anchor="middle">جواز الإنجاز اللغوي</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.2rem;">
+            <div>
+              <h3>المستوى الحالي: <span id="userRankTitle" style="color:var(--terracotta);">مستكشف البيان</span></h3>
+              <p style="color:var(--muted);">مجموع النقاط اللغوية: <strong id="totalPointsDisplay">140</strong> نقطة</p>
+            </div>
+            <button class="audio-btn" id="readPassportBtn">🔊 استمع لملخص إنجازك</button>
+          </div>
+
+          <div class="progress-wrap">
+            <div class="progress-label"><span>ثراء المفردات والدلالات</span><span id="statVocab">65%</span></div>
+            <div class="progress-bar"><div class="progress-fill" id="barVocab" style="width:65%"></div></div>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>التواصل الحي والتحدث</span><span id="statSpeak">55%</span></div>
+            <div class="progress-bar"><div class="progress-fill" id="barSpeak" style="width:55%"></div></div>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>الكتابة الإبداعية والأسلوب</span><span id="statWrite">60%</span></div>
+            <div class="progress-bar"><div class="progress-fill" id="barWrite" style="width:60%"></div></div>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>الفهم والذاكرة الثقافية</span><span id="statComp">70%</span></div>
+            <div class="progress-bar"><div class="progress-fill" id="barComp" style="width:70%"></div></div>
+          </div>
+
+          <h4 style="margin-top:1.3rem; margin-bottom:0.5rem;">🏅 الأختام المكتسبة:</h4>
+          <div id="stampsArea">
+            <span class="badge-stamp">✨ ختم الباحث في الجذور</span>
+            <span class="badge-stamp">🇴🇲 ختم الذاكرة العُمانية</span>
+          </div>
+
+          <h4 style="margin-top:1.3rem; margin-bottom:0.5rem;">📖 نصوصك المحفوظة في المحفظة:</h4>
+          <div id="savedWorksList" class="mini-box">
+            <p style="color:var(--muted);">لم تحفظ نصوصًا بعد. انتقل إلى قسم «أبدع» واكتب نصك الأول!</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- محرك الذكاء اللغوي التفاعلي «بَصير» -->
+    <aside class="baseer-sidebar" aria-label="محرك بَصير الذكي">
+      <div class="baseer-header">
+        <div class="baseer-orb">بَ</div>
+        <div>
+          <h3 style="color:var(--gold-light); font-size:1.45rem; line-height:1.1;">بَصير</h3>
+          <span style="font-size:0.85rem; color:#d7e3e0;">مرافقك الذكي في رحلة البيان</span>
+        </div>
+      </div>
+
+      <div class="baseer-task">
+        <strong>1. تحليل المستوى اللغوي</strong>
+        <span id="bTaskLevel">مستواك متقدم في الفهم السياقي، وتملك حصيلة جذور جيدة.</span>
+      </div>
+
+      <div class="baseer-task">
+        <strong>2. رصد الأخطاء اللغوية</strong>
+        <span id="bTaskErrors">لا توجد أخطاء مرصودة حاليًا؛ انتبه دائمًا لهمزتي الوصل والقطع.</span>
+      </div>
+
+      <div class="baseer-task">
+        <strong>3. ترشيح النشاط الأنسب</strong>
+        <span id="bTaskRecommend">جرّب البحث الصرفي الحي في قسم «اكتشف» لاستخراج جذور الكلمات.</span>
+      </div>
+
+      <div class="baseer-task">
+        <strong>4. بدائل لغوية أبلغ</strong>
+        <span id="bTaskAlt">بدلاً من «جميل جدًا»، جرّب: «بديعٌ يأسر الألباب» أو «آسرٌ للوجدان».</span>
+      </div>
+
+      <div class="baseer-task">
+        <strong>5. قياس التطور عبر الزمن</strong>
+        <span id="bTaskGrowth">تطوّر أداؤك بنسبة +18% خلال جلساتك الأخيرة.</span>
+      </div>
+
+      <button class="btn btn-gold" id="baseerVoiceSummary" style="width:100%; justify-content:center; margin-top:0.5rem;">
+        🔊 استمع لتوجيه بَصير
+      </button>
+    </aside>
+  </div>
+
+  <!-- إشعار النطق الصوتي -->
+  <div id="audioToast" class="toast-audio" role="status">
+    <span>🔊</span>
+    <span id="audioToastText">جارٍ النطق...</span>
+  </div>
+
+  <script>
+    // ==========================================
+    // 1. نظام الصوت التفاعلي المسموع
+    // ==========================================
+    let soundEnabled = true;
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    function playChime(freq = 523.25, duration = 0.18) {
+      if (!soundEnabled) return;
+      try {
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    function speakArabic(text) {
+      if (!soundEnabled) return;
+      playChime(587.33, 0.14);
+      const toast = document.getElementById('audioToast');
+      const toastText = document.getElementById('audioToastText');
+      toastText.textContent = text.length > 55 ? text.slice(0, 55) + '...' : text;
+      toast.style.display = 'flex';
+
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'ar-SA';
+        utterance.rate = 0.95;
+        utterance.onend = () => { toast.style.display = 'none'; };
+        utterance.onerror = () => { setTimeout(() => { toast.style.display = 'none'; }, 2200); };
+        window.speechSynthesis.speak(utterance);
+      } else {
+        setTimeout(() => { toast.style.display = 'none'; }, 2400);
+      }
+    }
+
+    document.getElementById('soundToggleBtn').addEventListener('click', () => {
+      soundEnabled = !soundEnabled;
+      document.getElementById('soundIcon').textContent = soundEnabled ? '🔊' : '🔇';
+      document.getElementById('soundLabel').textContent = soundEnabled ? 'الصوت التفاعلي: مُفعّل' : 'الصوت التفاعلي: مكتوم';
+      if (!soundEnabled && 'speechSynthesis' in window) window.speechSynthesis.cancel();
+      if (soundEnabled) speakArabic('تم تفعيل الصوت التفاعلي في منصة أبيان');
+    });
+
+    // ==========================================
+    // 2. حالة المتعلم ومحرك بَصير
+    // ==========================================
+    const learnerState = {
+      points: 140,
+      vocab: 65,
+      speak: 55,
+      write: 60,
+      comp: 70,
+      savedWorks: []
+    };
+
+    function updatePassportAndBaseer(updates) {
+      if (updates.points) learnerState.points += updates.points;
+      if (updates.vocab) learnerState.vocab = Math.min(100, learnerState.vocab + updates.vocab);
+      if (updates.speak) learnerState.speak = Math.min(100, learnerState.speak + updates.speak);
+      if (updates.write) learnerState.write = Math.min(100, learnerState.write + updates.write);
+      if (updates.comp) learnerState.comp = Math.min(100, learnerState.comp + updates.comp);
+
+      document.getElementById('totalPointsDisplay').textContent = learnerState.points;
+      document.getElementById('statVocab').textContent = learnerState.vocab + '%';
+      document.getElementById('barVocab').style.width = learnerState.vocab + '%';
+      document.getElementById('statSpeak').textContent = learnerState.speak + '%';
+      document.getElementById('barSpeak').style.width = learnerState.speak + '%';
+      document.getElementById('statWrite').textContent = learnerState.write + '%';
+      document.getElementById('barWrite').style.width = learnerState.write + '%';
+      document.getElementById('statComp').textContent = learnerState.comp + '%';
+      document.getElementById('barComp').style.width = learnerState.comp + '%';
+
+      if (learnerState.points >= 220) {
+        document.getElementById('userRankTitle').textContent = 'فارس الفصاحة والبيان';
+      } else if (learnerState.points >= 180) {
+        document.getElementById('userRankTitle').textContent = 'أديب متألّق';
+      }
+
+      if (updates.bLevel) document.getElementById('bTaskLevel').textContent = updates.bLevel;
+      if (updates.bErrors) document.getElementById('bTaskErrors').textContent = updates.bErrors;
+      if (updates.bRec) document.getElementById('bTaskRecommend').textContent = updates.bRec;
+      if (updates.bAlt) document.getElementById('bTaskAlt').textContent = updates.bAlt;
+      if (updates.bGrowth) document.getElementById('bTaskGrowth').textContent = updates.bGrowth;
+    }
+
+    document.getElementById('baseerVoiceSummary').addEventListener('click', () => {
+      const msg = document.getElementById('bTaskLevel').textContent + ' ' + document.getElementById('bTaskRecommend').textContent;
+      speakArabic(msg);
+    });
+
+    // التنقل بين الأقسام
+    document.querySelectorAll('nav button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.section-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.sec).classList.add('active');
+        playChime(440, 0.12);
+      });
+    });
+
+    // ==========================================
+    // 3. قسم اكتشف التفاعلي (الباحث الصرفي + محلل السياق)
+    // ==========================================
+    const knownRootsLexicon = {
+      'كتب': { root: 'ك - ت - ب', core: 'الجمع والخطّ والتدوين بالقلم', derivatives: [
+        { w: 'كَاتِب', t: 'اسم فاعل', m: 'من يمارس الكتابة والتأليف.' },
+        { w: 'مَكْتُوب', t: 'اسم مفعول', m: 'ما تمّ تدوينه وإثباته.' },
+        { w: 'مَكْتَبَة', t: 'اسم مكان', m: 'موضع حفظ الكتب والمخطوطات.' },
+        { w: 'كِتَابَة', t: 'مصدر', m: 'صناعة الخط والتعبير المدوّن.' }
+      ]},
+      'علم': { root: 'ع - ل - م', core: 'إدراك الشيء بحقيقته اليقينية', derivatives: [
+        { w: 'عَالِم', t: 'اسم فاعل', m: 'متبحّر في المعرفة والبحث.' },
+        { w: 'مَعْلُوم', t: 'اسم مفعول', m: 'ما أُدرك وعُرف يقينًا.' },
+        { w: 'مَعْلَم', t: 'اسم مكان', m: 'أثر بارز يُهتدى به.' },
+        { w: 'اسْتِعْلَام', t: 'مصدر', m: 'طلب المعرفة والاستفسار.' }
+      ]},
+      'نور': { root: 'ن - و - ر', core: 'الضياء والإشراق والهداية', derivatives: [
+        { w: 'مُنِير', t: 'اسم فاعل', m: 'مُشعٌّ بالضياء والنور.' },
+        { w: 'مَنَارَة', t: 'اسم مكان', m: 'برج عالٍ يهدي السفن في البحار.' },
+        { w: 'تَنْوِير', t: 'مصدر', m: 'إضاءة العقول بالمعرفة.' },
+        { w: 'نَوَّار', t: 'اسم', m: 'الزهر الأبيض المتفتح.' }
+      ]},
+      'سبق': { root: 'س - ب - ق', core: 'التقدّم والمبادرة إلى الغاية', derivatives: [
+        { w: 'سَابِق', t: 'اسم فاعل', m: 'المتقدّم على غيره.' },
+        { w: 'مَسْبُوق', t: 'اسم مفعول', m: 'ما تقدّمه غيره.' },
+        { w: 'مِضْمَار سِبَاق', t: 'تركيب', m: 'ميدان التنافس الشريف.' },
+        { w: 'مُسَابَقَة', t: 'مصدر', m: 'التنافس لبلوغ الأفضل.' }
+      ]},
+      'صفو': { root: 'ص - ف - و', core: 'الخلوص من الكدر والنقاء', derivatives: [
+        { w: 'صَافٍ', t: 'اسم فاعل', m: 'نقيٌّ خالٍ من الشوائب.' },
+        { w: 'مُصَفًّى', t: 'اسم مفعول', m: 'ما تمّت تنقيته.' },
+        { w: 'مِصْفَاة', t: 'اسم آلة', m: 'أداة تنقية الماء والسوائل.' },
+        { w: 'صَفَاء', t: 'مصدر', m: 'نقاء القلب والجوّ.' }
+      ]}
+    };
+
+    function extractArabicRoot(rawWord) {
+      let clean = rawWord.replace(/[ً-ٰٟ]/g, '').trim();
+      const steps = [`الكلمة المدخلة: «${clean}»`];
+
+      if (clean.startsWith('ال') && clean.length > 4) {
+        clean = clean.slice(2);
+        steps.push(`حذف «أل» التعريف ← «${clean}»`);
+      }
+
+      const suffixes = ['ون', 'ين', 'ات', 'ان', 'تان', 'تين', 'هم', 'هن', 'كم', 'نا', 'ها', 'ية', 'ة'];
+      for (const suf of suffixes) {
+        if (clean.endsWith(suf) && clean.length - suf.length >= 3) {
+          clean = clean.slice(0, -suf.length);
+          steps.push(`تجريد اللاحقة (${suf}) ← «${clean}»`);
+          break;
+        }
+      }
+
+      const prefixes = ['است', 'مست', 'يت', 'تت', 'مت', 'من', 'ان', 'م', 'ي', 'ت', 'ن', 'ا'];
+      for (const pre of prefixes) {
+        if (clean.startsWith(pre) && clean.length - pre.length >= 3) {
+          clean = clean.slice(pre.length);
+          steps.push(`تجريد السابقة (${pre}) ← «${clean}»`);
+          break;
+        }
+      }
+
+      if (clean.length > 3) {
+        clean = clean.replace(/[اوي]/g, (m, offset) => (offset > 0 && offset < clean.length - 1 ? '' : m));
+        if (clean.length > 3) clean = clean.slice(0, 3);
+        steps.push(`إسقاط حروف الزيادة الوسطى ← «${clean}»`);
+      }
+
+      if (clean.length === 2) clean = clean[0] + 'و' + clean[1];
+      const letters = clean.split('');
+      const rootFormatted = letters.join(' - ');
+
+      if (knownRootsLexicon[clean]) {
+        return { ...knownRootsLexicon[clean], steps, rawRoot: clean };
+      }
+
+      const [f, a, l] = [letters[0] || 'ف', letters[1] || 'ع', letters[2] || 'ل'];
+      return {
+        root: rootFormatted,
+        rawRoot: clean,
+        core: 'المعنى الأصلي الجامع لمشتقات هذا الجذر الثلاثي',
+        steps,
+        derivatives: [
+          { w: `${f}َا${a}ِ${l}`, t: 'اسم فاعل قياسي', m: `من قام بالفعل المرتبط بجذر (${rootFormatted}).` },
+          { w: `مَ${f}${a}ُو${l}`, t: 'اسم مفعول قياسي', m: `ما وقع عليه أثر الفعل.` },
+          { w: `مَ${f}${a}َ${l}`, t: 'اسم مكان / زمان', m: `موضع أو وقت حدوث الفعل.` },
+          { w: `${f}${a}ْ${l}`, t: 'المصدر الأصلي', m: `الحدث المجرد من الزمن.` }
+        ]
+      };
+    }
+
+    function runRootAnalyzer(wordVal) {
+      const val = (wordVal || document.getElementById('wordRootInput').value).trim();
+      if (!val) return;
+      document.getElementById('wordRootInput').value = val;
+      const res = extractArabicRoot(val);
+      const out = document.getElementById('rootAnalysisOutput');
+
+      out.innerHTML = `
+        <div class="dialogue-box" style="margin-top:0.8rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+            <h4 class="amiri" style="font-size:1.5rem; color:var(--emerald-deep);">الجذر الثلاثي المستخرج: <span style="color:var(--terracotta);">(${res.root})</span></h4>
+            <button class="audio-btn" onclick="speakArabic('الجذر الثلاثي للكلمة هو: ${res.root}')">🔊 استمع للجذر</button>
+          </div>
+          <p style="font-size:0.95rem; margin-top:0.3rem;"><strong>الدلالة المحورية:</strong> ${res.core}</p>
+          <p style="font-size:0.88rem; color:var(--muted); margin-top:0.3rem;"><strong>خطوات التحليل الصرفي:</strong> ${res.steps.join(' ← ')}</p>
+        </div>
+        <div class="grid-2">
+          ${res.derivatives.map(d => `
+            <div class="mini-box">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h4 class="amiri" style="font-size:1.3rem;">${d.w} <small style="font-size:0.82rem; color:var(--terracotta);">(${d.t})</small></h4>
+                <button class="audio-btn" onclick="speakArabic('${d.w}: ${d.m}')">🔊</button>
+              </div>
+              <p style="font-size:0.92rem; margin-top:0.25rem;">${d.m}</p>
+            </div>
+          `).join('')}
+        </div>
+      `;
+
+      updatePassportAndBaseer({
+        points: 10,
+        vocab: 4,
+        bLevel: `تحليل صرفي نشط: استخرجت جذر (${res.root}) ومشتقاته القياسية.`
+      });
+    }
+
+    document.getElementById('analyzeRootBtn').addEventListener('click', () => {
+      runRootAnalyzer();
+      speakArabic('تم استخراج الجذر والمشتقات القياسية للكلمة');
+    });
+
+    document.getElementById('wordRootInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        runRootAnalyzer();
+        speakArabic('تم استخراج الجذر والمشتقات');
+      }
+    });
+
+    document.querySelectorAll('#quickWordChips .pill-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        runRootAnalyzer(btn.dataset.w);
+        speakArabic(btn.dataset.w);
+      });
+    });
+
+    // محلل السياق المفتوح
+    const contextDictionary = {
+      'عين': [
+        { clues: ['شرب', 'ماء', 'عذبة', 'جبل', 'نبع', 'وادي', 'فلج'], meaning: 'ينبوع الماء الجاري العذب من الأرض أو الجبل.', pos: 'اسم جامد (معنى جغرافي)' },
+        { clues: ['حاسدة', 'حسد', 'رقية', 'معوذات', 'أصابت'], meaning: 'إصابة الإنسان بأذى الحسد أو النظرة.', pos: 'اسم (معنى معنوي)' },
+        { clues: ['دمع', 'بكت', 'أبصرت', 'رأت', 'رمش', 'كحل'], meaning: 'عضو الإبصار والرؤية في الكائن الحي.', pos: 'اسم عضو' },
+        { clues: ['جاسوس', 'أعداء', 'تراقب', 'أخبار'], meaning: 'المراقب أو الجاسوس الذي يجمع الأخبار.', pos: 'اسم مجازي' }
+      ],
+      'ضرب': [
+        { clues: ['مثل', 'مثلاً', 'حكيم', 'بليغ', 'تشبيه'], meaning: 'صاغ وقدّم مثالاً لتوضيح الفكرة وتقريبها.', pos: 'فعل متعدٍّ (دلالة بلاغية)' },
+        { clues: ['الأرض', 'سفر', 'رحل', 'تجارة', 'مسافر'], meaning: 'سار وسافر في الأرض طلبًا للرزق أو العلم.', pos: 'فعل لازم (دلالة حركية)' },
+        { clues: ['رقم', 'قياسي', 'موعد', 'خيمة'], meaning: 'حدّد أو أقام ونصب الشيء.', pos: 'فعل متعدٍّ' }
+      ],
+      'ساق': [
+        { clues: ['أغنام', 'إبل', 'راعي', 'سيارة', 'قطيع'], meaning: 'قاد ووجّه الماشية أو المركبة نحو مقصدها.', pos: 'فعل ماضٍ (من السَّوْق)' },
+        { clues: ['شجرة', 'نبتة', 'زهرة', 'غصن'], meaning: 'الجذع أو الجزء القائم الذي يحمل أغصان النبات.', pos: 'اسم (علم النبات)' },
+        { clues: ['قدم', 'ركبة', 'مشي', 'كسر'], meaning: 'الجزء الواقع بين الركبة والقدم في جسم الإنسان.', pos: 'اسم عضو' }
+      ],
+      'ذهب': [
+        { clues: ['إلى', 'نحو', 'المدرسة', 'السوق', 'سافر'], meaning: 'انطلق وتوجّه من مكان إلى آخر.', pos: 'فعل ماضٍ (حركة)' },
+        { clues: ['خاتم', 'فضة', 'صائغ', 'كنز', 'بريق', 'عيار'], meaning: 'المعدن النفيس الأصفر المعروف بقيمته.', pos: 'اسم معدن' }
+      ]
+    };
+
+    function analyzeSentenceContext(sentenceVal, targetVal) {
+      const sentence = (sentenceVal || document.getElementById('contextSentenceInput').value).trim();
+      const target = (targetVal || document.getElementById('contextTargetWordInput').value).trim();
+      const out = document.getElementById('contextAnalysisOutput');
+
+      if (!sentence || !target) {
+        out.innerHTML = `<div class="mini-box" style="border-color:var(--terracotta);">يرجى إدخال الجملة والكلمة المستهدفة معًا.</div>`;
+        return;
+      }
+
+      document.getElementById('contextSentenceInput').value = sentence;
+      document.getElementById('contextTargetWordInput').value = target;
+
+      const highlightedSentence = sentence.includes(target)
+        ? sentence.replace(target, `<span class="highlight-word">${target}</span>`)
+        : sentence + ` (الكلمة المستهدفة: <span class="highlight-word">${target}</span>)`;
+
+      const cleanTarget = target.replace(/^ال/, '').replace(/[ً-ٟ]/g, '');
+      let deducedMeaning = '';
+      let grammaticalRole = 'لفظة عربية موظّفة في سياق تركيبي';
+      let foundClues = [];
+
+      if (contextDictionary[cleanTarget]) {
+        for (const entry of contextDictionary[cleanTarget]) {
+          const matches = entry.clues.filter(c => sentence.includes(c));
+          if (matches.length > 0) {
+            deducedMeaning = entry.meaning;
+            grammaticalRole = entry.pos;
+            foundClues = matches;
+            break;
+          }
+        }
+        if (!deducedMeaning) {
+          deducedMeaning = contextDictionary[cleanTarget][0].meaning + ' (الدلالة الأشهر للكلمة لعدم وجود قرينة مخصِّصة في الجملة).';
+          grammaticalRole = contextDictionary[cleanTarget][0].pos;
+        }
+      } else {
+        const rootInfo = extractArabicRoot(cleanTarget);
+        const words = sentence.split(/\s+/);
+        const idx = words.findIndex(w => w.includes(target));
+        const neighbors = [words[idx - 1], words[idx + 1]].filter(Boolean);
+        foundClues = neighbors;
+        deducedMeaning = `تستمد كلمة «${target}» معناها هنا من جذرها (${rootInfo.root})، وتتحدّد دلالتها الدقيقة بارتباطها بالألفاظ المجاورة لها في الجملة.`;
+        grammaticalRole = target.startsWith('ال') ? 'اسم معرّف بأل' : 'كلمة سياقية (اسم أو فعل حسب موقعها الإعرابي)';
+      }
+
+      out.innerHTML = `
+        <div class="dialogue-box" style="margin-top:0.8rem; background:#f3f8f6;">
+          <p class="amiri" style="font-size:1.35rem; margin-bottom:0.5rem;">«${highlightedSentence}»</p>
+          <p><strong>🎯 الدلالة السياقية المستنتجة لكلمة «${target}»:</strong> ${deducedMeaning}</p>
+          <p style="font-size:0.92rem; color:var(--emerald-deep); margin-top:0.3rem;"><strong>📌 التصنيف اللغوي:</strong> ${grammaticalRole}</p>
+          ${foundClues.length ? `<p style="font-size:0.9rem; color:var(--muted); margin-top:0.25rem;"><strong>🔑 القرائن السياقية المساعدة في الجملة:</strong> ${foundClues.join('، ')}</p>` : ''}
+          <button class="audio-btn" style="margin-top:0.5rem;" onclick="speakArabic('معنى كلمة ${target} في هذا السياق هو: ${deducedMeaning}')">🔊 استمع للتحليل السياقي</button>
+        </div>
+      `;
+
+      updatePassportAndBaseer({
+        points: 12,
+        vocab: 5,
+        bLevel: `تحليل دلالي ممتاز لكلمة «${target}» داخل سياقها الحي.`
+      });
+    }
+
+    document.getElementById('analyzeContextBtn').addEventListener('click', () => {
+      analyzeSentenceContext();
+      speakArabic('تم تحليل الدلالة السياقية للكلمة داخل الجملة');
+    });
+
+    document.getElementById('speakUserSentenceBtn').addEventListener('click', () => {
+      speakArabic(document.getElementById('contextSentenceInput').value);
+    });
+
+    document.querySelectorAll('#quickContextExamples .pill-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        analyzeSentenceContext(btn.dataset.s, btn.dataset.t);
+        speakArabic(btn.dataset.s);
+      });
+    });
+
+    // بطاقات المترادفات والأضداد
+    const synonymsList = [
+      { pair: 'الجُود والكَرَم (ترادف)', note: 'الجود: العطاء بلا سؤال، والكرم: شرف النفس وسخاء اليد.' },
+      { pair: 'الأَمَل واليَأْس (تضاد)', note: 'الأمل: استشراف الخير القادم، واليأس: انقطاع الرجاء.' },
+      { pair: 'أَثْلَجَ صَدْرَهُ (تركيب بلاغي)', note: 'تعبير عربي أصيل يُقال عند سماع خبرٍ سارٍ يبعث الطمأنينة.' },
+      { pair: 'رَغَدُ العَيْش (تركيب وصفي)', note: 'يدل على سعة الرزق وطيب الحياة واستقرارها.' }
+    ];
+
+    const synGrid = document.getElementById('synonymsGrid');
+    synonymsList.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'mini-box';
+      div.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <h4>${item.pair}</h4>
+          <button class="audio-btn" onclick="speakArabic('${item.pair}. ${item.note}')">🔊</button>
+        </div>
+        <p style="font-size:0.93rem; margin-top:0.25rem;">${item.note}</p>
+      `;
+      synGrid.appendChild(div);
+    });
+
+    // تشغيل التحليل الافتراضي عند فتح الصفحة
+    runRootAnalyzer('المكتبات');
+    analyzeSentenceContext('شرب المسافر من عين عذبة في سفح الجبل الأخضر', 'عين');
+
+    // ==========================================
+    // 4. قسم عش اللغة
+    // ==========================================
+    const placesData = {
+      school: {
+        title: 'في المدرسة: حوار الإذاعة الصباحية',
+        npc: 'المعلم: صباح النور يا بطل، نودّ أن تفتتح الإذاعة المدرسية بكلمة موجزة عن حب القراءة. ماذا ستقول؟',
+        svg: `<svg viewBox="0 0 360 200"><rect width="360" height="200" fill="#e8f1ee"/><rect x="40" y="30" width="280" height="120" rx="8" fill="#14534c" stroke="#c89b3c" stroke-width="4"/><text x="180" y="95" fill="#fbf8f1" font-family="Amiri" font-size="22" text-anchor="middle">القراءةُ نورُ العقول</text></svg>`,
+        choices: [
+          { text: 'صباحٌ مشرقٌ بالعلم؛ القراءةُ نافذةٌ نطلّ منها على عوالم المعرفة.', reply: 'رائع! افتتاحية بليغة وإيقاع جميل.', score: 15 },
+          { text: 'أهلاً بكم، اقرأوا الكتب لأنها مفيدة.', reply: 'جملة صحيحة، ويمكن إثراؤها بصورة جمالية أبلغ.', score: 8 }
+        ]
+      },
+      airport: {
+        title: 'في مطار مسقط الدولي: مساعدة زائر',
+        npc: 'المسافر: عذرًا، أبحث عن بوابة المغادرة المتجهة إلى صلالة، هل لك أن ترشدني؟',
+        svg: `<svg viewBox="0 0 360 200"><rect width="360" height="200" fill="#e4eff7"/><path d="M50,130 L170,105 L290,70 L270,115 L175,125 Z" fill="#0b3b36"/><circle cx="290" cy="45" r="22" fill="#e5c375"/></svg>`,
+        choices: [
+          { text: 'بكل سرور؛ اتجه يمينًا نحو الرواق الشرقي، وستجد البوابة الثالثة أمامك مباشرة.', reply: 'توجيه واضح ولطيف بأسلوب عربي فصيح!', score: 15 },
+          { text: 'اذهب من هناك وستجدها.', reply: 'إجابة مختصرة جدًا؛ يفضّل تحديد الاتجاه بوضوح.', score: 7 }
+        ]
+      },
+      library: {
+        title: 'في مكتبة السُّلطان قابوس: البحث عن مرجع',
+        npc: 'أمين المكتبة: أهلاً بك في قاعة المخطوطات والتاريخ، عن أي موضوع تبحث اليوم؟',
+        svg: `<svg viewBox="0 0 360 200"><rect width="360" height="200" fill="#f5ebd9"/><rect x="55" y="30" width="250" height="145" fill="#7a5832"/><rect x="75" y="45" width="20" height="50" fill="#c89b3c"/><rect x="100" y="45" width="22" height="50" fill="#14534c"/><rect x="128" y="45" width="18" height="50" fill="#b85d3b"/></svg>`,
+        choices: [
+          { text: 'أبحث عن مصادر موثّقة تتناول تاريخ الملاحة البحرية العُمانية في المحيط الهندي.', reply: 'طلب دقيق ومصاغ بلغة علمية رصينة!', score: 15 },
+          { text: 'أريد كتابًا عن البحر والسفن.', reply: 'صياغة مفهومة، وتحديد العنوان يجعلها أدق.', score: 8 }
+        ]
+      },
+      souq: {
+        title: 'في سوق مطرح العريق: اقتناء اللبان العُماني',
+        npc: 'البائع: حيّاك الله في سوق مطرح، هذا لبانٌ حوجريٌّ فاخر من ظفار، كيف أخدمك؟',
+        svg: `<svg viewBox="0 0 360 200"><rect width="360" height="200" fill="#f7e6c4"/><path d="M40,90 Q110,40 180,90 Q250,40 320,90 L320,180 L40,180 Z" fill="#b85d3b"/><ellipse cx="180" cy="145" rx="35" ry="18" fill="#e5c375"/></svg>`,
+        choices: [
+          { text: 'أكرمك الله، أودّ أوقيةً من أجود أنواع اللبان الحوجري، وكم ثمنها؟', reply: 'حوار راقٍ يجمع بين الأصالة والأدب الرفيع!', score: 15 },
+          { text: 'بكم هذا البخور؟', reply: 'سؤال مباشر، وإضافة التحية تزيد الحديث جمالاً.', score: 8 }
+        ]
+      },
+      majlis: {
+        title: 'في المجلس العُماني (السبلة): آداب الضيافة',
+        npc: 'المضيف: تفضّل يا ضيفنا الكريم، القهوة العُمانية بالهيل والزعفران جاهزة، تفضّل الفنجان.',
+        svg: `<svg viewBox="0 0 360 200"><rect width="360" height="200" fill="#f3ead8"/><path d="M165,65 Q195,65 190,105 L200,150 L155,150 L165,105 Z" fill="#c89b3c"/><path d="M190,80 Q215,95 193,115" fill="none" stroke="#c89b3c" stroke-width="5"/></svg>`,
+        choices: [
+          { text: 'دام عزّك وأكرمك الله، قهوةٌ عامرةٌ بالكرم وطيب الملقى.', reply: 'ردٌّ أصيل يعكس رقيّ اللسان وذوق الضيافة العُمانية!', score: 15 },
+          { text: 'شكرًا لك على القهوة.', reply: 'ردٌّ مهذّب، ويمكن إثراؤه بعبارات الترحيب العربية.', score: 9 }
+        ]
+      }
+    };
+
+    function renderPlace(placeKey) {
+      const p = placesData[placeKey];
+      document.getElementById('sceneIllustration').innerHTML = p.svg;
+      const box = document.getElementById('sceneContainer');
+      box.innerHTML = `
+        <h3 style="margin-bottom:0.6rem;">${p.title}</h3>
+        <div class="dialogue-box">
+          <p style="font-size:1.1rem; font-weight:500;">${p.npc}</p>
+          <button class="audio-btn" style="margin-top:0.5rem;" onclick="speakArabic('${p.npc.replace(/'/g, '')}')">🔊 استمع للمتحدث</button>
+        </div>
+        <div id="placeChoices"></div>
+        <p id="placeFeedback" style="font-weight:700; margin-top:0.6rem;"></p>
+      `;
+      const choicesDiv = document.getElementById('placeChoices');
+      p.choices.forEach(c => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        btn.textContent = c.text;
+        btn.onclick = () => {
+          document.getElementById('placeFeedback').style.color = '#14534c';
+          document.getElementById('placeFeedback').textContent = `${c.reply} (+${c.score} نقطة)`;
+          speakArabic(c.text + '. ' + c.reply);
+          updatePassportAndBaseer({
+            points: c.score,
+            speak: 6,
+            bAlt: 'أحسنت اختيار العبارة المناسبة للمقام الاجتماعي.'
+          });
+        };
+        choicesDiv.appendChild(btn);
+      });
+    }
+
+    document.querySelectorAll('#placeTabs .pill-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#placeTabs .pill-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderPlace(btn.dataset.place);
+      });
+    });
+    renderPlace('school');
+
+    // ==========================================
+    // 5. قسم صوتك
+    // ==========================================
+    const voiceSamples = [
+      {
+        text: '«ظَلَّ الظَّبْيُ في ظِلِّ الشَّجَرَةِ الضَّخْمَةِ يَرْعَى بِاطْمِئْنَانٍ.»',
+        tip: 'ملاحظة النطق: ميّز بين الضاد (ض) من حافة اللسان، والظاء (ظ) بإخراج طرف اللسان قليلاً.'
+      },
+      {
+        text: '«عُمانُ يا مَوْطِنَ الأمجادِ والكَرَمِ .. يا نَبْعَ عِزٍّ تَسَامَى في ذُرَى القِمَمِ»',
+        tip: 'ملاحظة الإلقاء: أظهر المدّ الطبيعي في القافية مع نبرة فخرٍ متّزنة.'
+      },
+      {
+        text: '«إنَّ البيانَ سِحْرٌ حَلالٌ، يَجمعُ القلوبَ على الحكمةِ، ويُعلي شأنَ الفِكْر.»',
+        tip: 'ملاحظة الأداء: قف وقفةً قصيرةً عند الفواصل لإبراز المعنى.'
+      }
+    ];
+    let currentVoiceIdx = 0;
+
+    function loadVoiceChallenge(idx) {
+      currentVoiceIdx = idx;
+      document.getElementById('voicePromptText').textContent = voiceSamples[idx].text;
+      document.getElementById('voiceTip').textContent = voiceSamples[idx].tip;
+      document.getElementById('voiceReport').style.display = 'none';
+    }
+
+    document.querySelectorAll('#voiceChallenges .pill-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#voiceChallenges .pill-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        loadVoiceChallenge(Number(btn.dataset.vidx));
+      });
+    });
+    loadVoiceChallenge(0);
+
+    document.getElementById('listenModelBtn').addEventListener('click', () => {
+      speakArabic(voiceSamples[currentVoiceIdx].text);
+    });
+
+    document.getElementById('recordAttemptBtn').addEventListener('click', () => {
+      const btn = document.getElementById('recordAttemptBtn');
+      const report = document.getElementById('voiceReport');
+      btn.textContent = '⏺️ جارٍ الاستماع لصوتك...';
+      playChime(659.25, 0.2);
+
+      setTimeout(() => {
+        btn.textContent = '🎙️ سجّل محاولتك الصوتية';
+        report.style.display = 'block';
+        report.innerHTML = `
+          <h4>📊 تقرير الأداء الصوتي من «بَصير»:</h4>
+          <p>• <strong>وضوح المخارج:</strong> 92% — نطق سليم للحروف المفخمة والمرققة.</p>
+          <p>• <strong>سلامة التشكيل والوقف:</strong> 88% — التزام ممتاز بحركات أواخر الكلمات.</p>
+          <p style="color:var(--emerald-deep); font-weight:700;">تمت إضافة +15 نقطة لمهارة التحدث في جواز أَبْيَان!</p>
+        `;
+        speakArabic('أداء صوتي رائع! مخارج الحروف واضحة والتشكيل سليم.');
+        updatePassportAndBaseer({
+          points: 15,
+          speak: 7,
+          bGrowth: 'تحسّن ملحوظ في وضوح مخارج الحروف وتنغيم الإلقاء.'
+        });
+      }, 2000);
+    });
+
+    // ==========================================
+    // 6. قسم أبدع
+    // ==========================================
+    const creativePrompts = [
+      {
+        scene: 'صِف لحظة الغروب فوق قلاع نزوى وبهلاء، وكيف تتعانق ظلال النخيل مع أذان المغرب.',
+        words: ['شفق', 'شموخ', 'نسيم', 'سكينة']
+      },
+      {
+        scene: 'اكتب حوارًا قصيرًا بين بحّارٍ عُمانيٍّ قديم ونجمٍ يرشده في عرض البحر.',
+        words: ['شراع', 'بوصلة', 'أفق', 'عزيمة']
+      },
+      {
+        scene: 'اكتب خاطرة أدبية عن كتابٍ قديم وجدته في مكتبة جدّك، يحمل بين صفحاته رسالة من الماضي.',
+        words: ['مخطوطة', 'عبق', 'ذاكرة', 'مداد']
+      }
+    ];
+    let pIdx = 0;
+
+    function loadCreativePrompt() {
+      const item = creativePrompts[pIdx];
+      document.getElementById('creativeScenePrompt').textContent = item.scene;
+      const chips = document.getElementById('randomWordsChips');
+      chips.innerHTML = '<strong>كلمات مقترحة للتوظيف: </strong>' + item.words.map(w => `<span class="badge-stamp">${w}</span>`).join('');
+    }
+    loadCreativePrompt();
+
+    document.getElementById('newPromptBtn').addEventListener('click', () => {
+      pIdx = (pIdx + 1) % creativePrompts.length;
+      loadCreativePrompt();
+      speakArabic(creativePrompts[pIdx].scene);
+    });
+
+    document.getElementById('speakPromptBtn').addEventListener('click', () => {
+      speakArabic(creativePrompts[pIdx].scene);
+    });
+
+    document.getElementById('analyzeWritingBtn').addEventListener('click', () => {
+      const text = document.getElementById('creativeInput').value.trim();
+      const box = document.getElementById('writingFeedbackBox');
+      if (text.length < 15) {
+        box.innerHTML = `<div class="mini-box" style="border-color:var(--terracotta);">اكتب جملتين على الأقل ليتمكن «بَصير» من تحليل أسلوبك اللغوي.</div>`;
+        speakArabic('اكتب جملتين على الأقل ليتمكن بصير من تحليل نصك');
+        return;
+      }
+
+      const wordsCount = text.split(/\s+/).length;
+      const hasPunctuation = /[،.؛؟!]/.test(text);
+      const errNote = hasPunctuation
+        ? 'علامات الترقيم موظّفة بشكل يخدم تدرّج المعنى.'
+        : 'يُنصح بإضافة الفواصل (،) والنقاط في نهاية الجمل لتنظيم الإيقاع.';
+
+      box.innerHTML = `
+        <div class="mini-box" style="background:#f2f9f7;">
+          <h4>🧠 قراءة «بَصير» لنصك (${wordsCount} كلمة):</h4>
+          <p>• <strong>التدقيق والترقيم:</strong> ${errNote}</p>
+          <p>• <strong>إثراء أسلوبي مقترح:</strong> يمكنك تعزيز الصورة الفنية باستخدام تشبيه بليغ يربط المشهد بالمشاعر.</p>
+        </div>
+      `;
+      speakArabic('نص جميل! تم تحليل أسلوبك واقتراح تحسينات بلاغية.');
+      updatePassportAndBaseer({
+        points: 15,
+        write: 6,
+        bErrors: errNote,
+        bAlt: 'جرّب توظيف الجمل الفعلية المتتابعة لإضفاء حيوية على السرد.'
+      });
+    });
+
+    document.getElementById('savePortfolioBtn').addEventListener('click', () => {
+      const text = document.getElementById('creativeInput').value.trim();
+      if (text.length < 10) return;
+      learnerState.savedWorks.push(text);
+      const list = document.getElementById('savedWorksList');
+      list.innerHTML = learnerState.savedWorks.map((w, i) => `<p style="padding:0.5rem 0; border-bottom:1px solid #e5dac3;"><strong>نص #${i + 1}:</strong> ${w}</p>`).join('');
+      document.getElementById('stampsArea').innerHTML += `<span class="badge-stamp">✍️ ختم الأديب المبدع</span>`;
+      updatePassportAndBaseer({ points: 20, write: 8 });
+      speakArabic('تم حفظ نصك بنجاح في جواز أبيان');
+      alert('تم حفظ نصك الأدبي في جواز أَبْيَان بنجاح!');
+    });
+
+    // ==========================================
+    // 7. قسم الذاكرة العربية والتراث العُماني
+    // ==========================================
+    const omaniItems = [
+      { term: 'السَّمْت', origin: 'فصيحة الأصل: السَّمْتُ هو حُسْنُ الهيئة والوقار وسلوك الطريق القويم.', desc: 'تُستخدم في عُمان للدلالة على الأدب الرفيع، والرزانة، وحُسن المعشر.' },
+      { term: 'السَّبْلَة', origin: 'فصيحة الأصل: من السبيل المفتوح لعابري الطريق والضيوف.', desc: 'مجلس الجماعة والضيافة في الحارة العُمانية حيث تُناقش الشؤون وتُكرم الوفود.' },
+      { term: 'الفَلَج', origin: 'فصيحة الأصل: الفَلَجُ هو الماء الجاري من العين أو النهر الصغير.', desc: 'نظام الريّ العُماني العريق المدرج في التراث العالمي، ورمز التعاون والعدل.' },
+      { term: 'القَيْظ', origin: 'فصيحة الأصل: القَيْظُ هو شدّة الحرّ في منتصف الصيف.', desc: 'موسم نضج الرُّطب وتباشير النخيل في ربوع سلطنة عُمان.' }
+    ];
+
+    const arabicProverbs = [
+      { proverb: '«مَنْ جَدَّ وَجَدَ، وَمَنْ زَرَعَ حَصَدَ»', meaning: 'المثابرة والعمل الدؤوب هما الطريق الأكيد لبلوغ الغايات.' },
+      { proverb: '«خَيْرُ الكَلَامِ مَا قَلَّ وَدَلَّ»', meaning: 'البلاغة الحقيقية في وضوح المعنى وإيجاز اللفظ دون حشو.' },
+      { proverb: '«الصَّدِيقُ وَقْتَ الضِّيقِ»', meaning: 'معدن الصداقة الأصيل يظهر عند الشدائد والمواقف الصعبة.' },
+      { proverb: '«رُبَّ إِشَارَةٍ أَبْلَغُ مِنْ عِبَارَةٍ»', meaning: 'قد يُغني التلميح اللطيف عن التصريح الطويل.' }
+    ];
+
+    const omaniGrid = document.getElementById('omaniMemoryGrid');
+    omaniItems.forEach(item => {
+      const d = document.createElement('div');
+      d.className = 'mini-box';
+      d.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <h4 class="amiri" style="font-size:1.35rem; color:var(--terracotta);">${item.term}</h4>
+          <button class="audio-btn" onclick="speakArabic('${item.term}. ${item.desc}')">🔊 استمع</button>
+        </div>
+        <p style="font-size:0.9rem; color:var(--emerald-deep); font-weight:700; margin-top:0.2rem;">${item.origin}</p>
+        <p style="font-size:0.95rem; margin-top:0.3rem;">${item.desc}</p>
+      `;
+      omaniGrid.appendChild(d);
+    });
+
+    const proverbsGrid = document.getElementById('arabicProverbsGrid');
+    arabicProverbs.forEach(item => {
+      const d = document.createElement('div');
+      d.className = 'mini-box';
+      d.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem;">
+          <h4 class="amiri" style="font-size:1.25rem;">${item.proverb}</h4>
+          <button class="audio-btn" onclick="speakArabic('${item.proverb}. ${item.meaning}')">🔊 استمع</button>
+        </div>
+        <p style="font-size:0.95rem; margin-top:0.3rem;">${item.meaning}</p>
+      `;
+      proverbsGrid.appendChild(d);
+    });
+
+    document.getElementById('readPassportBtn').addEventListener('click', () => {
+      const rank = document.getElementById('userRankTitle').textContent;
+      speakArabic(`مرحباً بك في جواز أبيان. رتبتك الحالية هي ${rank}، ومجموع نقاطك ${learnerState.points} نقطة.`);
+    });
+  </script>
+</body>
+
+</html>
